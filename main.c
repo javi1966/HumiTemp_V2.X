@@ -25,7 +25,8 @@
 
 extern BYTE TOUT;
 BOOL bFlagMedida = FALSE;
-WORD ad_res;
+BOOL bFlagDHT   = FALSE;
+WORD ad_res ;
 BYTE temp;
 
 int main(int argc, char** argv) {
@@ -78,7 +79,8 @@ int main(int argc, char** argv) {
 
     while (TRUE) {
 
-
+    if( bFlagDHT)
+    {
         StartSignal();
 
         check = CheckResponse();
@@ -118,6 +120,10 @@ int main(int argc, char** argv) {
 
 
         }
+        
+        bFlagDHT=FALSE;
+
+    }
 
         if (bFlagMedida) {
 
@@ -140,7 +146,7 @@ int main(int argc, char** argv) {
           lcd_gotoxy(1, 2);
           drawProgressBar(valor++, 100, 12);*/
 
-        __delay_ms(1500);
+       // __delay_ms(1500);
     }
 
     return (1);
@@ -152,6 +158,7 @@ void interrupt isr(void) {
 
 
     static BYTE num = 0;
+    static BYTE cnt = 0;
 
     if (TMR2IF) {
         TOUT = 1;
@@ -160,10 +167,15 @@ void interrupt isr(void) {
 
     } else if (TMR1IF) {
 
-        if (++num > 20) {    //aprox. 5 seg.
+        if (++num > 20) { //aprox. 5 seg.
             // LED ^= 1;
             bFlagMedida = TRUE;
             num = 0;
+        }
+
+        if (++cnt > 10) {
+            bFlagDHT = TRUE;
+            cnt = 0;
         }
         TMR1IF = 0;
     }

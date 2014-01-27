@@ -1,20 +1,20 @@
-_readByte: CODE, 1433 0 67
+_readByte: CODE, 1365 0 67
 ___awdiv: CODE, 890 0 116
-_CheckResponse: CODE, 1500 0 50
+_CheckResponse: CODE, 1552 0 50
 __stringtab: STRING, 768 0 16
 __stringdata: STRING, 788 0 102
-_StartSignal: CODE, 1619 0 27
+_StartSignal: CODE, 1631 0 27
 ___awmod: CODE, 1006 0 102
-_main: CODE, 17 0 476
-_initDHT11: CODE, 1712 0 11
+_main: CODE, 17 0 467
+_initDHT11: CODE, 1726 0 11
 _setCGRAM: CODE, 1207 0 84
 _LCD_INIT_STRING: STRING, 784 0 4
-_LcdSendByte: CODE, 1646 0 19
-__initialization: CODE, 1665 0 16
-_lcd_gotoxy: CODE, 1590 0 29
+_LcdSendByte: CODE, 1678 0 19
+__initialization: CODE, 1658 0 18
+_lcd_gotoxy: CODE, 1602 0 29
 _putsLCD: CODE, 1108 0 99
-_isr: CODE, 1550 0 40
-_LcdInitialize: CODE, 493 0 204
-_LcdSendNibble: CODE, 1365 0 68
-_writeLCD: CODE, 1698 0 14
-Total: 1544
+_isr: CODE, 1498 0 54
+_LcdInitialize: CODE, 484 0 204
+_LcdSendNibble: CODE, 1432 0 66
+_writeLCD: CODE, 1712 0 14
+Total: 1549
